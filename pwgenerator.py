@@ -3,27 +3,33 @@ letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
 numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
-print("Welcome to the Brennan's Password Generator!")
-nr_letters= int(input("How many letters would you like in your password?\n")) 
-nr_symbols = int(input(f"How many symbols would you like?\n"))
-nr_numbers = int(input(f"How many numbers would you like?\n"))
-rletters = []
-rnumbers = []
-rsymbols = []
-for x in range(0, nr_letters):
-  randlet = letters[random.randint(0,len(letters)-1)]
-  rletters.append(randlet)
-for y in range(0, nr_numbers):
-  randnum = numbers[random.randint(0,len(numbers)-1)]
-  rnumbers.append(randnum)
-for z in range(0, nr_symbols):
-  randsymb = symbols[random.randint(0,len(symbols)-1)]
-  rsymbols.append(randsymb)
+print("Welcome to the Brennan's Password Generator!\n")
+cont = input("Would you like to create a new password?\n\nType 'y' or 'n': ")
+while(cont == 'y'):
 
-pwgen =  rletters + rnumbers + rsymbols
+    nr_letters= int(input("\nHow many letters would you like in your password?\n")) 
+    nr_symbols = int(input(f"How many symbols would you like?\n"))
+    nr_numbers = int(input(f"How many numbers would you like?\n"))
+    rletters = []
+    rnumbers = []
+    rsymbols = []
+    for x in range(0, nr_letters):
+        randlet = letters[random.randint(0,len(letters)-1)]
+        rletters.append(randlet)
+    for y in range(0, nr_numbers):
+        randnum = numbers[random.randint(0,len(numbers)-1)]
+        rnumbers.append(randnum)
+    for z in range(0, nr_symbols):
+        randsymb = symbols[random.randint(0,len(symbols)-1)]
+        rsymbols.append(randsymb)
 
-scrgen = random.shuffle(pwgen)
+    pwgen =  rletters + rnumbers + rsymbols
 
-pwgenerator = "".join(pwgen)
+    scrgen = random.shuffle(pwgen)
 
-print(f"Here is your randomly generated password: {pwgenerator}")
+    pwgenerator = "".join(pwgen)
+
+    print(f"Here is your randomly generated password: {pwgenerator}")
+    cont = input("\nWould you like to create a new password?\n\nType 'y' or 'n': ")
+if(cont == 'n'):
+    print("\nExiting...")
